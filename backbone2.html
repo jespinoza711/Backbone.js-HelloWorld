@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Test</title>
+	<style>
+		#container { 
+			padding: 20px;
+			border: 1px solid #333;
+			width: 400px;
+			}
+		#list-template { display: none}
+	</style>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<button>Load</button>
+		<ul id="list"></ul>
+	</div>
+
+	<div id="list-template">
+		<li><a href=""></a></li>
+	</div>
+
+	<script type="text/javascript">
+		model = new Backbone.Model({
+			data :[
+			{text : 'google', href:'http://www.google.es'},
+			{text: 'as', href:'http://www.as.com'},
+			{text: 'yahoo', href:'http://yahoo.es'}]
+		});
+
+		var View = Backbone.View.extend({
+			initialize : function(){
+				this.template = $('#list-template').children();
+			},
+			el: '#container', 
+			events: {
+				'click button' : 'render'
+			},
+			render : function(){
+				var data = this.model.get('data');
+				for (var i=0, l=data.length; i<l; i++){
+					var li = this.template.clone().find('a').attr('href',data[i].href).text(data[i].text).end();
+					this.$el.find('ul').append(li);
+				}
+			},
+		});
+		var view = new View({ model: model });
+	</script>
+</body>
+</html>

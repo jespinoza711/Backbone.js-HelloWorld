@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Test</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var Person = Backbone.Model.extend({
+			initialize : function(){
+		//		console.log(' is initialized');
+			},
+			defaults: {
+				name:'undefined',
+				age:'undefined'
+			},
+		});
+
+		var People = Backbone.Collection.extend({
+			initialize : function(){
+		//		console.log('People collection is initialized')
+			},
+			model : Person
+		});
+
+		//add person to model
+		var person = new Person({name:'Jose'});
+		var people = new People(person);
+		console.log(people.toJSON());
+
+		//add various person to model
+		people.add([{name:'bob'},{name:'pepe'},{name:'antonio'}]);
+		console.log(people.toJSON());
+
+		//remove person from model
+		people.remove(person);
+		console.log(people.toJSON());
+
+		people.reset(person);
+		console.log(people.toJSON());
+	</script>
+</body>
+</html>

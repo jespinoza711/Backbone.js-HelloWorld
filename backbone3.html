@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Test</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	var Router = Backbone.Router.extend({
+		routes: {
+			"foo/:bar": "paramtest",
+			"*action":"func"
+		},
+		func: function(action){
+			console.log(action);
+		},
+		paramtest: function(p){
+			console.log('foo');
+		}
+	});
+
+	new Router();
+
+	Backbone.history.start();
+</script>
+<a href="#foo">foo!</a>
+</body>
+</html>

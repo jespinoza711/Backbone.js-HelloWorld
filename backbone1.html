@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<title>Test</title>
+</head>
+<body>
+ 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+  	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+	<script type="text/javascript">
+		Person = Backbone.Model.extend({
+			initialize: function(){
+				this.bind("change:name", function(){
+					console.log(this.get('name') + ' is now the value');
+				});
+				this.bind("change:height", function(){
+					console.log(this.get('height') + ' is now the value');
+				});
+				this.bind('error',function(model, error){
+					console.log(error);
+				});
+			}, 
+			defaults : {
+				name : 'Bob',
+				height : '2,00'
+			}	
+		});
+
+		var person = new Person({name:'Joe', height:'1,20'}); 
+		var anonymous = new Person();
+		anonymous.set({name:'Humberto'});
+		anonymous.set({height: '6 feet'});
+		console.log(person.toJSON());
+		console.log(anonymous.toJSON());
+	</script>
+</body>
+</html>

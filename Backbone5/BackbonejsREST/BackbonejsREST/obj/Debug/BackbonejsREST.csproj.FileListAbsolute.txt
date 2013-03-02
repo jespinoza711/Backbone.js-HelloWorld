@@ -1,0 +1,5 @@
+c:\users\humberto\documents\visual studio 2012\Projects\BackbonejsREST\BackbonejsREST\bin\BackbonejsREST.dll
+c:\users\humberto\documents\visual studio 2012\Projects\BackbonejsREST\BackbonejsREST\bin\BackbonejsREST.pdb
+c:\users\humberto\documents\visual studio 2012\Projects\BackbonejsREST\BackbonejsREST\obj\Debug\BackbonejsREST.csprojResolveAssemblyReference.cache
+c:\users\humberto\documents\visual studio 2012\Projects\BackbonejsREST\BackbonejsREST\obj\Debug\BackbonejsREST.dll
+c:\users\humberto\documents\visual studio 2012\Projects\BackbonejsREST\BackbonejsREST\obj\Debug\BackbonejsREST.pdb

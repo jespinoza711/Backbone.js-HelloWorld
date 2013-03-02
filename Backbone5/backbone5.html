@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Test</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+</head>
+<body>
+
+	<div id="items">
+	  <ul class="person"></ul>
+	</section>
+
+	<script type="text/javascript">
+
+		var Person = Backbone.Model.extend({
+			defaults: {
+				Name : 'undefined',
+				Age: 'undefined',
+				ID:'undefined'
+			},
+		});
+
+		var People = Backbone.Collection.extend({
+			model : Person,
+			url: "http://192.168.119.137/BackbonejsREST/Service/JSONData",
+		});
+
+		var people = new People();
+		people.fetch({success: function(){
+		    console.log(people.models); 
+		}});		
+		people.toJSON();
+	</script>
+</body>
+</html>
